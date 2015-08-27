@@ -24,7 +24,7 @@
     </sec:http>
 
     <b:bean id="oAuth2AuthenticationProcessingFilter" class="org.springframework.security.oauth2.client.filter.OAuth2ClientAuthenticationProcessingFilter">
-        <b:constructor-arg name="defaultFilterProcessesUrl" value="/googleLogin"/>
+        <b:constructor-arg name="defaultFilterProcessesUrl" value="/fiwareLogin"/>
         <b:property name="restTemplate" ref="googleRestTemplate"/>
         <b:property name="tokenServices" ref="tokenServices"/>
     </b:bean>
@@ -33,14 +33,11 @@
         These token classes are mostly a clone of the Spring classes but have the structure modified so that the response
         from Google can be handled.
     -->
-    <b:bean id="tokenServices" class="com.rst.oauth2.google.security.GoogleTokenServices">
-        <b:property name="checkTokenEndpointUrl" value="https://www.googleapis.com/oauth2/v1/tokeninfo"/>
-        <b:property name="clientId" value="${google.client.id}"/>
-        <b:property name="clientSecret" value="${google.client.secret}"/>
+    <b:bean id="tokenServices" class="com.amaxilatis.oauth2.fiware.security.TokenServices">
         <b:property name="accessTokenConverter">
-            <b:bean class="com.rst.oauth2.google.security.GoogleAccessTokenConverter">
+            <b:bean class="com.amaxilatis.oauth2.fiware.util.MyAccessTokenConverter">
                 <b:property name="userTokenConverter">
-                    <b:bean class="com.rst.oauth2.google.security.DefaultUserAuthenticationConverter"/>
+                    <b:bean class="com.amaxilatis.oauth2.fiware.security.DefaultUserAuthenticationConverter"/>
                 </b:property>
             </b:bean>
         </b:property>
@@ -48,11 +45,11 @@
 
     <!-- 
         This authentication entry point is used for all the unauthenticated or unauthorised sessions to be directed to the 
-        /googleLogin URL which is then intercepted by the oAuth2AuthenticationProcessingFilter to trigger authentication from 
+        /fiwareLogin URL which is then intercepted by the oAuth2AuthenticationProcessingFilter to trigger authentication from 
         Google.
     -->
     <b:bean id="clientAuthenticationEntryPoint" class="org.springframework.security.web.authentication.LoginUrlAuthenticationEntryPoint">
-        <b:property name="loginFormUrl" value="/googleLogin"/>
+        <b:property name="loginFormUrl" value="/fiwareLogin"/>
     </b:bean>
 
     <sec:authentication-manager alias="alternateAuthenticationManager">
