@@ -9,7 +9,7 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
 @EnableAutoConfiguration
-@ComponentScan("com.amaxilatis.oauth2.fiware")
+@ComponentScan("com.ichatz.wstore.fiware")
 @Configuration
 public class SpringBootRestApplication extends SpringBootServletInitializer {
     private static Logger LOGGER = LoggerFactory.getLogger(SpringBootRestApplication.class);
