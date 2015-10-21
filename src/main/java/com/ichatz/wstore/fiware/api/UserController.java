@@ -15,6 +15,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.client.RestTemplate;
 
 @Controller
 public class UserController {
@@ -39,9 +40,13 @@ public class UserController {
         final HttpHeaders headers = new HttpHeaders();
         headers.set("Authorization", "Bearer " + oauth2RestTemplate.getAccessToken());
 
+        LOGGER.info("" + oauth2RestTemplate.getAccessToken());
+
         HttpEntity entity = new HttpEntity(headers);
 
-        final HttpEntity<String> response = oauth2RestTemplate.exchange(
+        final RestTemplate restTemplate = new RestTemplate();
+
+        final HttpEntity<String> response = restTemplate.exchange(
                 url, HttpMethod.GET, entity, String.class);
 
         return response.getBody();
