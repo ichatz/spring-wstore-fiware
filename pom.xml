@@ -4,14 +4,14 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.amaxilatis</groupId>
-    <artifactId>oauth2.fiware</artifactId>
+    <groupId>com.ichatz</groupId>
+    <artifactId>wstore.fiware</artifactId>
     <version>1.0-SNAPSHOT</version>
 
-    <name>spring oauth2 fiware example</name>
+    <name>spring wstore fiware example</name>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <start-class>com.amaxilatis.oauth2.fiware.config.SpringBootRestApplication</start-class>
+        <start-class>com.ichatz.wstore.fiware.config.SpringBootRestApplication</start-class>
     </properties>
     <packaging>jar</packaging>
 

@@ -1,10 +1,13 @@
-# Spring Security OAuth2 Fiware Connector
+# Spring WStore Fiware Connector
 
 ---
 ## What do I do?
 
-I am simple Spring MVC application which secured by Spring Security. Instead of using simple form based security, I am
-secured by Spring Security OAuth2 and the OAuth provider is Fiware.
+I am simple Spring MVC application for an online web-store. Instead of implementing the web-store
+from scratch, I am using the WStore enabler of FIWARE.
+
+The security for is following Spring Security OAuth2 and the OAuth provider is Fiware. The code is based on
+the [spring-wstore-fiware](https://github.com/amaxilat/spring-security-oauth2-fiware) github repository.
 
 ## Get it up and runnning
 The project is built with Maven so you can run the build using the following maven command

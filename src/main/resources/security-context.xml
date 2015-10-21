@@ -33,11 +33,11 @@
         These token classes are mostly a clone of the Spring classes but have the structure modified so that the response
         from Google can be handled.
     -->
-    <b:bean id="tokenServices" class="com.amaxilatis.oauth2.fiware.security.TokenServices">
+    <b:bean id="tokenServices" class="com.ichatz.wstore.fiware.security.TokenServices">
         <b:property name="accessTokenConverter">
-            <b:bean class="com.amaxilatis.oauth2.fiware.util.MyAccessTokenConverter">
+            <b:bean class="com.ichatz.wstore.fiware.util.MyAccessTokenConverter">
                 <b:property name="userTokenConverter">
-                    <b:bean class="com.amaxilatis.oauth2.fiware.security.DefaultUserAuthenticationConverter"/>
+                    <b:bean class="com.ichatz.wstore.fiware.security.DefaultUserAuthenticationConverter"/>
                 </b:property>
             </b:bean>
         </b:property>
